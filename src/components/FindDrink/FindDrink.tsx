@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { RandomDrinkEntity } from "../../types/randomDrink";
+import { RandomDrinkTable } from "../RandomDrink/random-drink-table";
 
 export const FindDrink = () => {
   const [form, setForm] = useState<RandomDrinkEntity>({
@@ -31,21 +32,23 @@ export const FindDrink = () => {
     console.log(data);
   };
   return (
-    <form onSubmit={sendForm}>
-      <h2>Find Drink</h2>
-      <p>
-        <label>
-          Drink Name:
-          <br />
-          <input
-            type="text"
-            value={form.name}
-            onChange={(e) => updateForm("name", e.target.value)}
-          />
-        </label>
-      </p>
+    <>
+      <form onSubmit={sendForm}>
+        <h2>Find Drink</h2>
+        <p>
+          <label>
+            Drink Name:
+            <br />
+            <input
+              type="text"
+              value={form.name}
+              onChange={(e) => updateForm("name", e.target.value)}
+            />
+          </label>
+        </p>
 
-      <button>Find Me!</button>
-    </form>
+        <button>Find Me!</button>
+      </form>
+    </>
   );
 };

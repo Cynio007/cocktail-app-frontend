@@ -2,10 +2,25 @@ import React, { useEffect, useState } from "react";
 import { RandomDrinkEntity } from "../../types/randomDrink";
 import { RandomDrinkTable } from "./random-drink-table";
 
+// interface Props {
+//   drink: RandomDrinkEntity;
+// }
+
 export const RandomDrink = () => {
   const [randomDrink, setRandomDrink] = useState<RandomDrinkEntity | null>(
     null
   );
+
+  // if(props.drink !==null){
+  //           setRandomDrink(props.drink);
+  // return(
+  //     <>
+  //       <h2>Found Drink</h2>
+
+  //       <RandomDrinkTable drink={randomDrink as RandomDrinkEntity} />
+  //     </>
+  // )
+  // }
 
   useEffect(() => {
     (async () => {
@@ -21,7 +36,7 @@ export const RandomDrink = () => {
   }
   return (
     <>
-      <h1>Random Drink</h1>
+      <h2>Random Drink</h2>
 
       <RandomDrinkTable drink={randomDrink} />
     </>
