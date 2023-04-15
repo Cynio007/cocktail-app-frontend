@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { RandomDrinkEntity } from "../../types/randomDrink";
-import { RandomDrinkTable } from "../RandomDrink/random-drink-table";
+import { Link } from "react-router-dom";
 
 export const FindDrink = () => {
   const [form, setForm] = useState<RandomDrinkEntity>({
@@ -21,16 +21,9 @@ export const FindDrink = () => {
 
   const sendForm = async (e: FormEvent) => {
     e.preventDefault();
-
-    const res = await fetch(`http://localhost:3001/drink/${form.name}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data: RandomDrinkEntity = await res.json();
-    console.log(data);
+    console.log(form);
   };
+
   return (
     <>
       <form onSubmit={sendForm}>
@@ -40,14 +33,16 @@ export const FindDrink = () => {
             Drink Name:
             <br />
             <input
+              placeholder="e.g. Mojito"
               type="text"
               value={form.name}
               onChange={(e) => updateForm("name", e.target.value)}
             />
           </label>
         </p>
-
-        <button>Find Me!</button>
+        <Link to={`/drink/${form.name}`}>
+          <button>Find Me!</button>
+        </Link>
       </form>
     </>
   );

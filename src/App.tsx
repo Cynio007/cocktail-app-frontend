@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import { TestView } from "./views/TestView";
 import { Header } from "./components/Header/Header";
 import { NotFoundView } from "./views/NotFoundView";
+import { FoundDrink } from "./components/FindDrink/FoundDrink";
+import { DrinkNotFoundView } from "./views/DrinkNotFoundView";
 
 export const App = () => {
   return (
@@ -13,6 +15,8 @@ export const App = () => {
       <Header />
       <Routes>
         <Route path="/test" element={<TestView />} />
+        <Route path="/drink/:name" element={<FoundDrink />} />
+        <Route path="/Drink" element={<DrinkNotFoundView />} />
         <Route path="/RandomDrink" element={<RandomDrinkView />} />
         <Route path="*" element={<NotFoundView />} />
       </Routes>

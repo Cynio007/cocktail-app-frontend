@@ -27,7 +27,7 @@ export const RandomDrink = () => {
       const res = await fetch("http://localhost:3001/drink");
       const data = await res.json();
       setRandomDrink(data);
-      console.log(data);
+      console.log("random drin:", data);
     })();
   }, []);
 
