@@ -34,13 +34,17 @@ export const Registration = () => {
 
     const data = await res.json();
     if (data.isSuccess === false) {
-      toast.error("Given email already exist!");
+      setLoading(false);
+      return toast.error("Given email already exist!");
     } else {
       toast.success("Account created correct!");
       navigate("/test"); // nawigować do strony logowania
     }
   };
 
+  if (loading) {
+    return <h3>Loading...</h3>;
+  }
   return (
     <div>
       <form onSubmit={signUp}>
