@@ -8,16 +8,20 @@ import { Header } from "./components/Header/Header";
 import { NotFoundView } from "./views/NotFoundView";
 import { FoundDrink } from "./components/FindDrink/FoundDrink";
 import { DrinkNotFoundView } from "./views/DrinkNotFoundView";
+import { Registration } from "./components/Registration/Registration";
+import { ToastContainer } from "react-toastify";
 
 export const App = () => {
   return (
     <>
+      <ToastContainer theme="dark" />
       <Header />
       <Routes>
         <Route path="/test" element={<TestView />} />
         <Route path="/drink/:name" element={<FoundDrink />} />
         <Route path="/Drink" element={<DrinkNotFoundView />} />
         <Route path="/RandomDrink" element={<RandomDrinkView />} />
+        <Route path="/Registration" element={<Registration />} />
         <Route path="*" element={<NotFoundView />} />
       </Routes>
     </>

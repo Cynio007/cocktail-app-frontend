@@ -18,6 +18,10 @@ export const Header = () => {
       <NavLink style={fontOfLink} to={"/RandomDrink"}>
         Switch to Random Drink
       </NavLink>
+      |
+      <NavLink style={fontOfLink} to={"/Registration"}>
+        Switch to Sign up
+      </NavLink>
       <FindDrink />
       <hr />
     </>
