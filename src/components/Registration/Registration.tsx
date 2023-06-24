@@ -38,7 +38,7 @@ export const Registration = () => {
       return toast.error("Given email already exist!");
     } else {
       toast.success("Account created correct!");
-      navigate("/test"); // nawigować do strony logowania
+      navigate("/login");
     }
   };
 

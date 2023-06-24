@@ -11,8 +11,8 @@ export const Header = () => {
     <>
       <h1>Cocktail App</h1>
       Menu:
-      <NavLink style={fontOfLink} to={"/Test"}>
-        Switch to Test
+      <NavLink style={fontOfLink} to={"/Login"}>
+        Switch Log in
       </NavLink>
       |
       <NavLink style={fontOfLink} to={"/RandomDrink"}>
@@ -21,6 +21,10 @@ export const Header = () => {
       |
       <NavLink style={fontOfLink} to={"/Registration"}>
         Switch to Sign up
+      </NavLink>
+      |
+      <NavLink style={fontOfLink} to={"/UserList"}>
+        Switch to User List
       </NavLink>
       <FindDrink />
       <hr />
