@@ -1,11 +1,11 @@
 import React from "react";
-import { RandomDrinkEntity } from "../../types/randomDrink";
+import { SingleDrinkEntity } from "../../types/singleDrink";
 
 interface Props {
-  drink: RandomDrinkEntity;
+  drink: SingleDrinkEntity;
 }
 
-export const RandomDrinkTable = (props: Props) => (
+export const SingleDrinkTable = (props: Props) => (
   <>
     <table>
       <thead>

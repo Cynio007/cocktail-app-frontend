@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { SingleDrinkTable } from "../RandomDrink/single-drink-table";
+import { SingleDrinkEntity } from "../../types/singleDrink";
+import { SingleDrinkFromMyList } from "../SingleDrinkFromMyList/single-drink-from-my-list";
+import { SingleDrinkFromMyListEntity } from "../../types/singleDrinkFromMyList";
 
-export const DrinksList = () => {
-  const [drinksList, setDrinksList] = useState(null);
+interface Props {
+  drinksArr: SingleDrinkFromMyListEntity[];
+  refresh: () => void;
+}
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("http://localhost:3001/user/mylist");
-      const data = await res.json();
-      console.log(data);
-    })();
-  }, []);
-
-  if (drinksList === null) {
-    return <p>Loading...</p>;
-  }
-
-  return null;
+export const DrinksList = (props: Props) => {
+  return (
+    <ul>
+      {props.drinksArr.map((element) => (
+        <li key={element.id}>
+          <SingleDrinkFromMyList drink={element} refresh={props.refresh} />
+        </li>
+      ))}
+    </ul>
+  );
 };

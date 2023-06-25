@@ -13,9 +13,18 @@ import { ToastContainer } from "react-toastify";
 import { Login } from "./components/Login/Login";
 import { UserList } from "./components/UserList/UserList";
 import { UserContext } from "./context/user-context";
+import { Logout } from "./components/Logout/Logout";
 
 export const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const checkStatus = () => {
+    if (localStorage.getItem("IsLoggedIn") === "true") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const [isLoggedIn, setIsLoggedIn] = useState(checkStatus());
+
   const user = useContext(UserContext);
   return (
     <>
@@ -24,6 +33,7 @@ export const App = () => {
         <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/UserList" element={<UserList />} />
           <Route path="/drink/:name" element={<FoundDrink />} />
           <Route path="/Drink" element={<DrinkNotFoundView />} />

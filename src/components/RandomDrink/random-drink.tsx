@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { RandomDrinkEntity } from "../../types/randomDrink";
-import { RandomDrinkTable } from "./random-drink-table";
+import { SingleDrinkEntity } from "../../types/singleDrink";
+import { SingleDrinkTable } from "./single-drink-table";
+import { AddDrinkBtn } from "../AddDrinkBtn/add-drink-btn";
+import { NextDrinkBtn } from "../NextDrinkBtn/next-drink-btn";
 
 // interface Props {
 //   drink: RandomDrinkEntity;
 // }
 
 export const RandomDrink = () => {
-  const [randomDrink, setRandomDrink] = useState<RandomDrinkEntity | null>(
+  const [randomDrink, setRandomDrink] = useState<SingleDrinkEntity | null>(
     null
   );
+  const [next, setNext] = useState<boolean>(false);
 
+  const nextDrink = () => {
+    setNext((next) => !next);
+  };
   // if(props.drink !==null){
   //           setRandomDrink(props.drink);
   // return(
@@ -29,7 +35,7 @@ export const RandomDrink = () => {
       setRandomDrink(data);
       console.log("random drin:", data);
     })();
-  }, []);
+  }, [next]);
 
   if (randomDrink === null) {
     return <p>Loading...</p>;
@@ -37,8 +43,9 @@ export const RandomDrink = () => {
   return (
     <>
       <h2>Random Drink</h2>
-
-      <RandomDrinkTable drink={randomDrink} />
+      <AddDrinkBtn drink={randomDrink} />
+      <NextDrinkBtn nextDrink={nextDrink} />
+      <SingleDrinkTable drink={randomDrink} />
     </>
   );
 };

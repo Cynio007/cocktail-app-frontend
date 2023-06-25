@@ -1,4 +1,4 @@
-export interface RandomDrinkEntity {
+export interface SingleDrinkEntity {
   id: string;
   name: string;
   instruction: string;

@@ -39,6 +39,7 @@ export const Login = () => {
     console.log(data);
     if (data.ok) {
       setIsLoggedIn(data.ok);
+      localStorage.setItem("IsLoggedIn", "true");
       toast.success("Successfully logged in!");
       return navigate("/RandomDrink");
     } else {

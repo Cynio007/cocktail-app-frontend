@@ -1,9 +1,9 @@
 import React, { FormEvent, useState } from "react";
-import { RandomDrinkEntity } from "../../types/randomDrink";
+import { SingleDrinkEntity } from "../../types/singleDrink";
 import { Link } from "react-router-dom";
 
 export const FindDrink = () => {
-  const [form, setForm] = useState<RandomDrinkEntity>({
+  const [form, setForm] = useState<SingleDrinkEntity>({
     id: "",
     name: "",
     alcoholic: "",

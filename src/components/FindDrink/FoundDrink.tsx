@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { RandomDrinkEntity } from "../../types/randomDrink";
+import { SingleDrinkEntity } from "../../types/singleDrink";
 import { useParams } from "react-router-dom";
-import { RandomDrinkTable } from "../RandomDrink/random-drink-table";
+import { SingleDrinkTable } from "../RandomDrink/single-drink-table";
 import { badResponse } from "../../types/badResponse";
 import { DrinkNotFoundView } from "../../views/DrinkNotFoundView";
+import { AddDrinkBtn } from "../AddDrinkBtn/add-drink-btn";
 
 // interface Props {
 //   drink: RandomDrinkEntity;
@@ -15,7 +16,7 @@ export const FoundDrink = () => {
     nameOfDrink = decodeURIComponent(name); // skrócić
   }
   const [foundDrink, setFoundDrink] = useState<
-    RandomDrinkEntity | null | badResponse
+    SingleDrinkEntity | null | badResponse
   >(null);
 
   useEffect(() => {
@@ -38,7 +39,8 @@ export const FoundDrink = () => {
   return (
     <>
       <h2>Founded drink:</h2>
-      <RandomDrinkTable drink={foundDrink as RandomDrinkEntity} />
+      <AddDrinkBtn drink={foundDrink as SingleDrinkEntity} />
+      <SingleDrinkTable drink={foundDrink as SingleDrinkEntity} />
     </>
   );
 };
