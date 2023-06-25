@@ -11,13 +11,14 @@ export const UserList = () => {
   const [flag, setFlag] = useState(false);
 
   console.log(isLoggedIn);
-  //   let flag = true;
   const refresh = () => {
     setFlag((flag) => !flag);
   };
   useEffect(() => {
+    setLoading(true);
     if (isLoggedIn) {
       (async () => {
+        // setLoading(true);
         const res = await fetch("http://localhost:3001/user/mylist", {
           credentials: "include",
         });

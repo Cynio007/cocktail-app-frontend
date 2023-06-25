@@ -14,6 +14,7 @@ import { Login } from "./components/Login/Login";
 import { UserList } from "./components/UserList/UserList";
 import { UserContext } from "./context/user-context";
 import { Logout } from "./components/Logout/Logout";
+import { ConfigProvider } from "antd";
 
 export const App = () => {
   const checkStatus = () => {
@@ -28,7 +29,7 @@ export const App = () => {
   const user = useContext(UserContext);
   return (
     <>
-      <ToastContainer theme="dark" />
+      <ToastContainer theme="light" />
       <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Header />
         <Routes>
