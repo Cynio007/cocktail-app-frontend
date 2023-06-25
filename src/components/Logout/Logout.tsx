@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/user-context";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 import { Modal } from "antd";
 import { ExclamationCircleFilled } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 export const Logout = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const { setIsLoggedIn } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // if (window.confirm("Do You want log out?")) {
@@ -47,7 +48,7 @@ export const Logout = () => {
       },
       onCancel() {
         console.log("Cancel");
-        return;
+        navigate("/RandomDrink");
       },
     });
   }, []);

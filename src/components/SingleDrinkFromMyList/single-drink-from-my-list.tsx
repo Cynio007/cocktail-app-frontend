@@ -68,15 +68,9 @@ export const SingleDrinkFromMyList = (props: Props) => {
             <td>{props.drink.name}</td>
             <td>{props.drink.alcoholic}</td>
             <td>
-              <ConfigProvider
-                theme={{
-                  algorithm: theme.darkAlgorithm,
-                }}
-              >
-                <a href="#" onClick={deleteDrink}>
-                  🗑
-                </a>
-              </ConfigProvider>
+              <a href="#" onClick={deleteDrink}>
+                🗑
+              </a>
             </td>
           </tr>
         </tbody>
