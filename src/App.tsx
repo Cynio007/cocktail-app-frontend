@@ -1,9 +1,7 @@
-import React, { useContext, useRef, useState } from "react";
-import logo from "./logo.svg";
+import React, { useContext, useState } from "react";
 import "./App.css";
 import { RandomDrinkView } from "./views/RandomDrinkView";
 import { Route, Routes } from "react-router-dom";
-import { TestView } from "./views/TestView";
 import { Header } from "./components/Header/Header";
 import { NotFoundView } from "./views/NotFoundView";
 import { FoundDrink } from "./components/FindDrink/FoundDrink";
@@ -14,9 +12,7 @@ import { Login } from "./components/Login/Login";
 import { UserList } from "./components/UserList/UserList";
 import { UserContext } from "./context/user-context";
 import { Logout } from "./components/Logout/Logout";
-import { ConfigProvider } from "antd";
 import { HomePage } from "./components/HomePage/HomePage";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 export const App = () => {
   const checkStatus = () => {
@@ -30,11 +26,6 @@ export const App = () => {
 
   const user = useContext(UserContext);
 
-  // const ref=useRef<HTMLElement>(null);
-
-  // const handleClick = () => {
-  //   ref.current?.scrollIntoView({ behavior: 'smooth' });
-  // };
   return (
     <>
       <ToastContainer theme="light" />

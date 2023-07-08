@@ -5,17 +5,15 @@ import { SingleDrinkTable } from "../RandomDrink/single-drink-table";
 import { badResponse } from "../../types/badResponse";
 import { DrinkNotFoundView } from "../../views/DrinkNotFoundView";
 import { AddDrinkBtn } from "../AddDrinkBtn/add-drink-btn";
-import "./FoundDrink.css";
 import { Footer } from "../common/footer/Footer";
+import { Spinner } from "../common/spinner/Spinner";
+import "./FoundDrink.css";
 
-// interface Props {
-//   drink: RandomDrinkEntity;
-// }
 export const FoundDrink = () => {
   let { name } = useParams();
   let nameOfDrink = "";
   if (typeof name === "string") {
-    nameOfDrink = decodeURIComponent(name); // skrócić
+    nameOfDrink = decodeURIComponent(name);
   }
   const [foundDrink, setFoundDrink] = useState<
     SingleDrinkEntity | null | badResponse
@@ -26,12 +24,11 @@ export const FoundDrink = () => {
       const res = await fetch(`http://localhost:3001/drink/${nameOfDrink}`);
       const data = await res.json();
       setFoundDrink(data);
-      console.log("znaleziony drin:", data);
     })();
   }, [name]);
 
   if (foundDrink === null) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
 
   if (foundDrink.hasOwnProperty("isSuccess")) {

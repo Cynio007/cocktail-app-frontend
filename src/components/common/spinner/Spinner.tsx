@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from "react";
+import { CSSProperties } from "react";
 import { PulseLoader } from "react-spinners";
 
 const override: CSSProperties = {

@@ -51,33 +51,6 @@ export const Registration = () => {
     return <Spinner />;
   }
   return (
-    // <div>
-    //   <form onSubmit={signUp}>
-    //     <input
-    //       className="email"
-    //       type="email"
-    //       value={email}
-    //       placeholder="E-mail"
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-    //     <input
-    //       className="password"
-    //       type="password"
-    //       value={password}
-    //       placeholder="Password"
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       value={checkPassword}
-    //       placeholder="Confirm password"
-    //       onChange={(e) => setCheckPassword(e.target.value)}
-    //     />
-    //     <div className="Row">
-    //       <button>Sign up</button>
-    //     </div>
-    //   </form>
-    // </div>
     <>
       <Form onSubmit={signUp}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -89,9 +62,6 @@ export const Registration = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {/* <Form.Text className="text-muted register-font">
-            We'll never share your email with anyone else.
-          </Form.Text> */}
           </Col>
         </Form.Group>
 
@@ -118,9 +88,6 @@ export const Registration = () => {
             />
           </Col>
         </Form.Group>
-
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    </Form.Group> */}
         <Button variant="primary" type="submit">
           Sign up
         </Button>

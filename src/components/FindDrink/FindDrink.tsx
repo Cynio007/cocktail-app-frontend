@@ -42,47 +42,6 @@ export const FindDrink = () => {
           </Button>
         </Link>
       </Form>
-
-      {/* <form onSubmit={sendForm} className="form-inline my-2 my-lg-0">
-        <input
-          className="form-control mr-sm-2"
-          aria-label="Search"
-          placeholder="Find drink (e.g. Mojito)"
-          type="text"
-          value={form.name}
-          onChange={(e) => updateForm("name", e.target.value)}
-        />
-
-        <Link to={`/drink/${form.name}`}>
-          <button className="btn btn-outline-success my-2 my-sm-0">
-            Search
-          </button>
-        </Link>
-      </form> */}
-
-      {/* <form className="form-inline">
-        <input
-          className="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form> */}
-
-      {/* <Form className="d-flex">
-        <Form.Control
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Link to={`/drink/${form.name}`}>
-          <Button variant="outline-success">Search</Button>
-        </Link>
-      </Form> */}
     </>
   );
 };

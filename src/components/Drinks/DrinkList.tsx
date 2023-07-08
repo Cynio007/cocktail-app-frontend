@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { SingleDrinkTable } from "../RandomDrink/single-drink-table";
-import { SingleDrinkEntity } from "../../types/singleDrink";
+import React from "react";
 import { SingleDrinkFromMyList } from "../SingleDrinkFromMyList/single-drink-from-my-list";
 import { SingleDrinkFromMyListEntity } from "../../types/singleDrinkFromMyList";
 import Accordion from "react-bootstrap/Accordion";
@@ -13,14 +11,6 @@ interface Props {
 
 export const DrinksList = (props: Props) => {
   return (
-    // <ul>
-    //   {props.drinksArr.map((element) => (
-    //     <li key={element.id}>
-    //       <SingleDrinkFromMyList drink={element} refresh={props.refresh} />
-    //     </li>
-    //   ))}
-    // </ul>
-
     <Accordion defaultActiveKey={"0"}>
       {props.drinksArr.map((element, index) => (
         <>

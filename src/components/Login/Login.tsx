@@ -1,13 +1,14 @@
 import React, { FormEvent, useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/user-context";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import { Spinner } from "../common/spinner/Spinner";
-import "./Login.css";
 import { Footer } from "../common/footer/Footer";
+import "./Login.css";
+
 export const Login = () => {
   const [user, setUser] = useState({
     email: "",
@@ -41,7 +42,6 @@ export const Login = () => {
       }),
     });
     const data = await res.json();
-    console.log(data);
     if (data.ok) {
       setIsLoggedIn(data.ok);
       sessionStorage.setItem("IsLoggedIn", "true");
@@ -58,28 +58,6 @@ export const Login = () => {
   }
 
   return (
-    // <div className="LoginPage">
-    //   <form onSubmit={handleSubmit}>
-    //     <input
-    //       type="email"
-    //       value={user.email}
-    //       placeholder="E-mail"
-    //       onChange={(e) => updateForm("email", e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       value={user.password}
-    //       placeholder="Password"
-    //       onChange={(e) => updateForm("password", e.target.value)}
-    //     />
-    //     <div className="Row">
-    //       {/* <Link to={"/forgotten-password"} className="theme-text-light">
-    //         Zapomniałeś hasła?
-    //       </Link> */}
-    //       <button>Zaloguj się</button>
-    //     </div>
-    //   </form>
-    // </div>
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">

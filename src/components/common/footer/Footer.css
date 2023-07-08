@@ -18,6 +18,6 @@ body {
   padding: 10px;
   bottom: 0;
 }
-a {
+.link-author {
   color: gray;
 }

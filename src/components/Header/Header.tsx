@@ -1,24 +1,13 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FindDrink } from "../FindDrink/FindDrink";
 import { UserContext } from "../../context/user-context";
 
 import "./Header.css";
-import {
-  Button,
-  Container,
-  Form,
-  Nav,
-  NavDropdown,
-  Navbar,
-} from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 export const Header = () => {
   const { isLoggedIn } = useContext(UserContext);
-
-  // const fontOfLink = ({ isActive }: { isActive: boolean }) => ({
-  //   fontSize: isActive ? "140%" : "",
-  // });
 
   const visability = () => ({
     display: isLoggedIn ? "inline" : "none",
@@ -27,11 +16,6 @@ export const Header = () => {
   const revVisability = () => ({
     display: isLoggedIn ? "none" : "inline",
   });
-
-  const handleClick = () => {
-    console.log("kliknięto");
-    return window.scrollTo({ top: 300, behavior: "smooth" });
-  };
 
   return (
     <>
@@ -61,9 +45,7 @@ export const Header = () => {
                   Log in
                 </NavLink>
               </Nav.Link>
-              <Nav.Link
-              // onClick={handleClick}
-              >
+              <Nav.Link>
                 <NavLink
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
@@ -95,7 +77,6 @@ export const Header = () => {
                   style={visability}
                   to={"/UserList"}
                   id="navLink"
-                  // onClick={handleClick}
                 >
                   User List
                 </NavLink>
@@ -119,70 +100,6 @@ export const Header = () => {
       </Navbar>
       <div className="banner"></div>
       <hr />
-      {/* <h1 className="title">Cocktail App</h1>
-      <nav className="navbar  navbar-light bg-dark justify-content-between">
-      
-        <p className="nav-item nav-link active">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            style={revVisability}
-            to={"/Login"}
-          >
-            Log in
-          </NavLink>
-        </p>
-        <p className="nav-item nav-link active">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            
-            to={"/RandomDrink"}
-          >
-            Random Drink
-          </NavLink>
-        </p>
-        <p className="nav-item nav-link active">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            style={revVisability}
-            to={"/Registration"}
-          >
-            Sign up
-          </NavLink>
-        </p>
-        <p className="nav-item nav-link active">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            style={visability}
-            to={"/UserList"}
-          >
-            User List
-          </NavLink>
-        </p>
-        <p className="nav-item nav-link active">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            style={visability}
-            to={"/Logout"}
-          >
-            Log Out
-          </NavLink>
-        </p>
-
-        <FindDrink />
-
-       
-      </nav>
-      <hr /> */}
     </>
   );
 };

@@ -10,22 +10,6 @@ interface Props {
 export const SingleDrinkTable = (props: Props) => {
   return (
     <>
-      {/* <table>
-      <thead>
-        <tr>
-          <th>Id:</th>
-          <th>Name:</th>
-          <th>Alcoholic:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{props.drink.id} </td>
-          <td>{props.drink.name}</td>
-          <td>{props.drink.alcoholic}</td>
-        </tr>
-      </tbody>
-    </table> */}
       <div className="container-table">
         <Table striped bordered hover variant="dark">
           <thead>
@@ -68,18 +52,6 @@ export const SingleDrinkTable = (props: Props) => {
               <td className="td">{props.drink.instruction}</td>
             </tr>
           </tbody>
-          {/* <thead>
-        <tr>
-          <th className="th">Photo:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="td">
-            <img src={props.drink.img}></img>
-          </td>
-        </tr>
-      </tbody> */}
         </Table>
         <Table striped bordered hover variant="dark">
           <thead>
@@ -90,7 +62,7 @@ export const SingleDrinkTable = (props: Props) => {
           <tbody>
             <tr>
               <td className="td">
-                <img src={props.drink.img}></img>
+                <img src={props.drink.img} alt={props.drink.name}></img>
               </td>
             </tr>
           </tbody>

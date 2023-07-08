@@ -1,7 +1,7 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { SingleDrinkFromMyListEntity } from "../../types/singleDrinkFromMyList";
-import { ToastContainer, toast } from "react-toastify";
-import { Button, ConfigProvider, Modal, Space, theme } from "antd";
+import { toast } from "react-toastify";
+import { Modal } from "antd";
 import { ExclamationCircleFilled } from "@ant-design/icons";
 import Table from "react-bootstrap/Table";
 import "./single-drink-from-my-list.css";
@@ -15,40 +15,23 @@ export const SingleDrinkFromMyList = (props: Props) => {
   const deleteDrink = async (ev: React.MouseEvent<HTMLElement>) => {
     ev.preventDefault();
 
-    // if (
-    //     !window.confirm(`Are You sure You want to remove ${props.drink.name}`)
-
-    // ) {
-    //   return;
-    // }
-    // const res = await fetch(`http://localhost:3001/user/${props.drink.id}`, {
-    //   method: "DELETE",
-    //   credentials: "include",
-    // });
-    // const data = await res.json();
-    // props.refresh();
-    // toast.success(`Successfully remove ${props.drink.name}!`);
     const { confirm } = Modal;
 
     confirm({
       title: `Are you sure?`,
       icon: <ExclamationCircleFilled />,
       content: `Do you Want to delete "${props.drink.name}"?`,
+
       async onOk() {
-        console.log("OK");
-        const res = await fetch(
-          `http://localhost:3001/user/${props.drink.id}`,
-          {
-            method: "DELETE",
-            credentials: "include",
-          }
-        );
-        const data = await res.json();
+        await fetch(`http://localhost:3001/user/${props.drink.id}`, {
+          method: "DELETE",
+          credentials: "include",
+        });
         props.refresh();
         toast.success(`Successfully remove "${props.drink.name}"!`);
       },
+
       onCancel() {
-        console.log("Cancel");
         return;
       },
     });
@@ -113,18 +96,6 @@ export const SingleDrinkFromMyList = (props: Props) => {
               <td className="td">{props.drink.instruction}</td>
             </tr>
           </tbody>
-          {/* <thead>
-          <tr>
-            <th className="th">Photo:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="td">
-              <img src={props.drink.img}></img>
-            </td>
-          </tr>
-        </tbody> */}
         </Table>
         <Table striped bordered hover variant="dark">
           <thead>
@@ -135,7 +106,7 @@ export const SingleDrinkFromMyList = (props: Props) => {
           <tbody>
             <tr>
               <td className="td">
-                <img src={props.drink.img}></img>
+                <img src={props.drink.img} alt={props.drink.name}></img>
               </td>
             </tr>
           </tbody>

@@ -3,8 +3,8 @@ import { SingleDrinkEntity } from "../../types/singleDrink";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/user-context";
 import Button from "react-bootstrap/Button";
-import "./add-drink-btn.css";
 import { Spinner } from "../common/spinner/Spinner";
+import "./add-drink-btn.css";
 
 interface Props {
   drink: SingleDrinkEntity;
@@ -16,8 +16,8 @@ export const AddDrinkBtn = (props: Props) => {
 
   const addToList = async () => {
     setloading(true);
-    console.log(props.drink);
-    const res = await fetch("http://localhost:3001/user/addDrink", {
+
+    await fetch("http://localhost:3001/user/addDrink", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,10 +25,9 @@ export const AddDrinkBtn = (props: Props) => {
       credentials: "include",
       body: JSON.stringify(props.drink),
     });
-    const data = await res.json();
+
     toast.success("Successfully added to list!");
     setloading(false);
-    console.log("dodany", data);
   };
 
   if (isLoggedIn) {

@@ -1,7 +1,6 @@
 .banner {
   background-image: url("../../../logo4.jpg");
   background-size: cover;
-  /* background-position: 50%; */
   height: 360px;
 }
 .active {
