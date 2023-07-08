@@ -1,3 +1,4 @@
+
 # Cocktail-App: front-end
 
 <br/>
@@ -48,3 +49,4 @@ Uruchom serwer
 - Bootstrap
 - React Spinners
 - React Toastify
+
