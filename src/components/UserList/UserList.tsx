@@ -42,8 +42,10 @@ export const UserList = () => {
     <Spinner />
   ) : list ? (
     <>
-      <h2 className="user-list">Your drink list</h2>
-      <DrinksList drinksArr={list} refresh={refresh} />
+      <div className="container-list">
+        <h2 className="user-list">Your drink list</h2>
+        <DrinksList drinksArr={list} refresh={refresh} />
+      </div>
       <Footer />
     </>
   ) : null;

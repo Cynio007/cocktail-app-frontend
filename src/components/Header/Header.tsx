@@ -45,17 +45,6 @@ export const Header = () => {
                   Log in
                 </NavLink>
               </Nav.Link>
-              <Nav.Link>
-                <NavLink
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                  }
-                  to={"/RandomDrink"}
-                  id="navLink"
-                >
-                  Random Drink
-                </NavLink>
-              </Nav.Link>
 
               <Nav.Link>
                 <NavLink
@@ -74,11 +63,23 @@ export const Header = () => {
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
+                  to={"/RandomDrink"}
+                  id="navLink"
+                >
+                  Random Drink
+                </NavLink>
+              </Nav.Link>
+
+              <Nav.Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
                   style={visability}
                   to={"/UserList"}
                   id="navLink"
                 >
-                  User List
+                  My List
                 </NavLink>
               </Nav.Link>
               <Nav.Link>
