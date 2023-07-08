@@ -1,0 +1,10 @@
+.logout-info {
+  text-align: center;
+  color: #e2d8d8;
+  text-shadow: 0 0 0.2em #8f7;
+  font-size: 40px;
+}
+
+.container-logout {
+  min-height: 27vh;
+}
