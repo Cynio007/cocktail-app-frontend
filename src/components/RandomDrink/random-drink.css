@@ -1,0 +1,33 @@
+.random {
+  text-align: center;
+  color: #e2d8d8;
+  text-shadow: 0 0 0.2em #8f7;
+  font-size: 40px;
+  /* font-weight: 800; */
+}
+
+/* .button {
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+} */
+.container-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.th {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+}
+
+.td {
+  display: flex;
+  justify-content: center;
+}
+
+.container-table {
+  display: flex;
+  align-items: baseline;
+}

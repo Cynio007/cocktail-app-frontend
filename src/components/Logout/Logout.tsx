@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 import { Modal } from "antd";
 import { ExclamationCircleFilled } from "@ant-design/icons";
 import { useNavigate } from "react-router";
+import { Spinner } from "../common/spinner/Spinner";
+import "./Logout.css";
+import { Footer } from "../common/footer/Footer";
 
 export const Logout = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,9 +35,10 @@ export const Logout = () => {
       title: `Are you sure?`,
       icon: <ExclamationCircleFilled />,
       content: `Do you Want to Log out?`,
+      // centered: true,
       async onOk() {
         (async () => {
-          localStorage.setItem("IsLoggedIn", "false");
+          sessionStorage.setItem("IsLoggedIn", "false");
           const res = await fetch("http://localhost:3001/auth/logout", {
             credentials: "include",
           });
@@ -53,5 +57,19 @@ export const Logout = () => {
     });
   }, []);
 
-  return loading ? <h3>loading...</h3> : <h3> Successfully Logged out</h3>;
+  return loading ? (
+    <>
+      <div className="container-logout">
+        <Spinner />
+      </div>
+      <Footer />
+    </>
+  ) : (
+    <>
+      <div className="container-logout">
+        <h3 className="logout-info"> Successfully Logged out</h3>
+      </div>
+      <Footer />
+    </>
+  );
 };

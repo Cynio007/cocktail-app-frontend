@@ -1,0 +1,19 @@
+.th {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+}
+
+.td {
+  display: flex;
+  justify-content: center;
+}
+
+.remove-link {
+  text-decoration: none;
+}
+
+.container-table-mylist {
+  display: flex;
+  align-items: baseline;
+}

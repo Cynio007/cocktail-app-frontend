@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { RandomDrinkView } from "./views/RandomDrinkView";
@@ -15,10 +15,12 @@ import { UserList } from "./components/UserList/UserList";
 import { UserContext } from "./context/user-context";
 import { Logout } from "./components/Logout/Logout";
 import { ConfigProvider } from "antd";
+import { HomePage } from "./components/HomePage/HomePage";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 export const App = () => {
   const checkStatus = () => {
-    if (localStorage.getItem("IsLoggedIn") === "true") {
+    if (sessionStorage.getItem("IsLoggedIn") === "true") {
       return true;
     } else {
       return false;
@@ -27,12 +29,19 @@ export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(checkStatus());
 
   const user = useContext(UserContext);
+
+  // const ref=useRef<HTMLElement>(null);
+
+  // const handleClick = () => {
+  //   ref.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
   return (
     <>
       <ToastContainer theme="light" />
       <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Header />
         <Routes>
+          <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/UserList" element={<UserList />} />
@@ -44,25 +53,5 @@ export const App = () => {
         </Routes>
       </UserContext.Provider>
     </>
-
-    //  <div className="App">
-    // {
-    /* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */
-    // <RandomDrinkView />
-    // }
-    // </div>
   );
 };

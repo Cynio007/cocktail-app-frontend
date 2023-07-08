@@ -3,6 +3,8 @@ import { SingleDrinkFromMyListEntity } from "../../types/singleDrinkFromMyList";
 import { ToastContainer, toast } from "react-toastify";
 import { Button, ConfigProvider, Modal, Space, theme } from "antd";
 import { ExclamationCircleFilled } from "@ant-design/icons";
+import Table from "react-bootstrap/Table";
+import "./single-drink-from-my-list.css";
 
 interface Props {
   drink: SingleDrinkFromMyListEntity;
@@ -54,61 +56,91 @@ export const SingleDrinkFromMyList = (props: Props) => {
 
   return (
     <>
-      <table>
-        <thead>
+      <div className="container-table-mylist">
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th className="th">To remove from my list:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">
+                <a href="#" onClick={deleteDrink} className="remove-link">
+                  🗑 Click here!
+                </a>
+              </td>
+            </tr>
+          </tbody>
+
+          <thead>
+            <tr>
+              <th className="th">Name:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">{props.drink.name} </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th className="th">Type:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">{props.drink.alcoholic}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th className="th">Ingredients:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">{props.drink.ingredients}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th className="th">Instructions:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">{props.drink.instruction}</td>
+            </tr>
+          </tbody>
+          {/* <thead>
           <tr>
-            <th>Id:</th>
-            <th>Name:</th>
-            <th>Alcoholic:</th>
+            <th className="th">Photo:</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{props.drink.id} </td>
-            <td>{props.drink.name}</td>
-            <td>{props.drink.alcoholic}</td>
-            <td>
-              <a href="#" onClick={deleteDrink}>
-                🗑
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr>
-            <th>Ingredients:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{props.drink.ingredients}</td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th>Instructions:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{props.drink.instruction}</td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th>Photo:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
+            <td className="td">
               <img src={props.drink.img}></img>
             </td>
           </tr>
-        </tbody>
-      </table>
+        </tbody> */}
+        </Table>
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th className="th">Photo:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="td">
+                <img src={props.drink.img}></img>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
     </>
   );
 };

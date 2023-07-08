@@ -3,6 +3,9 @@ import { UserContext } from "../../context/user-context";
 import { SingleDrinkEntity } from "../../types/singleDrink";
 import { DrinksList } from "../Drinks/DrinkList";
 import { SingleDrinkFromMyListEntity } from "../../types/singleDrinkFromMyList";
+import "./UserList.css";
+import { Spinner } from "../common/spinner/Spinner";
+import { Footer } from "../common/footer/Footer";
 
 export const UserList = () => {
   const [list, setList] = useState<SingleDrinkFromMyListEntity[] | null>(null);
@@ -38,16 +41,24 @@ export const UserList = () => {
     }
   }, [flag]);
 
+  useEffect(() => {
+    // 👇️ scroll to top on page load
+
+    window.scrollTo({ top: 200, left: 0, behavior: "smooth" });
+    console.log("kliknięto effect");
+  }, [list]);
+
   if (!isLoggedIn) {
     return <h3>You must be logged in to see Your drink list!</h3>;
   }
 
   return loading ? (
-    <p>Loading...</p>
+    <Spinner />
   ) : list ? (
     <>
-      <h2>Your drink list:</h2>{" "}
+      <h2 className="user-list">Your drink list</h2>
       <DrinksList drinksArr={list} refresh={refresh} />
+      <Footer />
     </>
   ) : null;
 };

@@ -2,7 +2,12 @@ import React, { FormEvent, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/user-context";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import { Spinner } from "../common/spinner/Spinner";
+import "./Login.css";
+import { Footer } from "../common/footer/Footer";
 export const Login = () => {
   const [user, setUser] = useState({
     email: "",
@@ -39,7 +44,7 @@ export const Login = () => {
     console.log(data);
     if (data.ok) {
       setIsLoggedIn(data.ok);
-      localStorage.setItem("IsLoggedIn", "true");
+      sessionStorage.setItem("IsLoggedIn", "true");
       toast.success("Successfully logged in!");
       return navigate("/RandomDrink");
     } else {
@@ -49,31 +54,63 @@ export const Login = () => {
   };
 
   if (loading) {
-    return <h3>Loading...</h3>;
+    return <Spinner />;
   }
 
   return (
-    <div className="LoginPage">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={user.email}
-          placeholder="E-mail"
-          onChange={(e) => updateForm("email", e.target.value)}
-        />
-        <input
-          type="password"
-          value={user.password}
-          placeholder="Password"
-          onChange={(e) => updateForm("password", e.target.value)}
-        />
-        <div className="Row">
-          <Link to={"/forgotten-password"} className="theme-text-light">
-            Zapomniałeś hasła?
-          </Link>
-          <button>Zaloguj się</button>
-        </div>
-      </form>
-    </div>
+    // <div className="LoginPage">
+    //   <form onSubmit={handleSubmit}>
+    //     <input
+    //       type="email"
+    //       value={user.email}
+    //       placeholder="E-mail"
+    //       onChange={(e) => updateForm("email", e.target.value)}
+    //     />
+    //     <input
+    //       type="password"
+    //       value={user.password}
+    //       placeholder="Password"
+    //       onChange={(e) => updateForm("password", e.target.value)}
+    //     />
+    //     <div className="Row">
+    //       {/* <Link to={"/forgotten-password"} className="theme-text-light">
+    //         Zapomniałeś hasła?
+    //       </Link> */}
+    //       <button>Zaloguj się</button>
+    //     </div>
+    //   </form>
+    // </div>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Col xs={2}>
+            <Form.Label className="form-font">Email address:</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={user.email}
+              onChange={(e) => updateForm("email", e.target.value)}
+            />
+          </Col>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Col xs={2}>
+            <Form.Label className="form-font">Password:</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={user.password}
+              onChange={(e) => updateForm("password", e.target.value)}
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+        <Button variant="primary" type="submit">
+          Log in
+        </Button>
+      </Form>
+      <Footer />
+    </>
   );
 };

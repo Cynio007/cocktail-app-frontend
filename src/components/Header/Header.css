@@ -1,3 +1,27 @@
+.banner {
+  background-image: url("../../../logo4.jpg");
+  background-size: cover;
+  /* background-position: 50%; */
+  height: 360px;
+}
 .active {
   font-size: 140%;
+}
+
+.title {
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+#navLink {
+  color: rgb(212, 212, 212);
+  text-decoration: none;
+}
+#navBrand {
+  color: white;
+  font-size: 35px;
+  text-decoration: none;
 }

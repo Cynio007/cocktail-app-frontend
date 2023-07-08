@@ -5,6 +5,8 @@ import { SingleDrinkTable } from "../RandomDrink/single-drink-table";
 import { badResponse } from "../../types/badResponse";
 import { DrinkNotFoundView } from "../../views/DrinkNotFoundView";
 import { AddDrinkBtn } from "../AddDrinkBtn/add-drink-btn";
+import "./FoundDrink.css";
+import { Footer } from "../common/footer/Footer";
 
 // interface Props {
 //   drink: RandomDrinkEntity;
@@ -38,9 +40,12 @@ export const FoundDrink = () => {
 
   return (
     <>
-      <h2>Founded drink:</h2>
-      <AddDrinkBtn drink={foundDrink as SingleDrinkEntity} />
+      <h2 className="founded">Founded drink</h2>
+      <div className="container-btn">
+        <AddDrinkBtn drink={foundDrink as SingleDrinkEntity} />
+      </div>
       <SingleDrinkTable drink={foundDrink as SingleDrinkEntity} />
+      <Footer />
     </>
   );
 };

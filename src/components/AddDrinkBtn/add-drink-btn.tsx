@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { SingleDrinkEntity } from "../../types/singleDrink";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/user-context";
+import Button from "react-bootstrap/Button";
+import "./add-drink-btn.css";
+import { Spinner } from "../common/spinner/Spinner";
 
 interface Props {
   drink: SingleDrinkEntity;
@@ -30,18 +33,22 @@ export const AddDrinkBtn = (props: Props) => {
 
   if (isLoggedIn) {
     return loading ? (
-      <h3>Loading...</h3>
+      <Spinner />
     ) : (
-      <button onClick={addToList}>Add to my list</button>
+      <Button onClick={addToList} variant="success" className="button">
+        Add to my list
+      </Button>
     );
   } else
     return (
-      <button
+      <Button
         onClick={() =>
           toast.warn("You must be logged in to add a drink to the list!")
         }
+        variant="success"
+        className="button"
       >
         Add to my list
-      </button>
+      </Button>
     );
 };
