@@ -32,6 +32,7 @@ export const App = () => {
       <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Header />
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
