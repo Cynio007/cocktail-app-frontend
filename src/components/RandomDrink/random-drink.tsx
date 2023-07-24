@@ -35,7 +35,7 @@ export const RandomDrink = () => {
 
   return (
     <>
-      <h2 className="random">Random Drink</h2>
+      <h2 className="random">Random Drink:</h2>
       <div className="container-btn">
         <AddDrinkBtn drink={randomDrink} />
         <NextDrinkBtn nextDrink={nextDrink} />

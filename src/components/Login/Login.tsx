@@ -59,6 +59,7 @@ export const Login = () => {
 
   return (
     <>
+      <h2 className="login">Log in:</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Col xs={2}>
