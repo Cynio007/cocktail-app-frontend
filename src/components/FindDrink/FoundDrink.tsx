@@ -37,7 +37,7 @@ export const FoundDrink = () => {
 
   return (
     <>
-      <h2 className="founded">Founded drink</h2>
+      <h2 className="founded">Founded drink:</h2>
       <div className="container-btn">
         <AddDrinkBtn drink={foundDrink as SingleDrinkEntity} />
       </div>

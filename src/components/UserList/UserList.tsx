@@ -43,7 +43,7 @@ export const UserList = () => {
   ) : list ? (
     <>
       <div className="container-list">
-        <h2 className="user-list">Your drink list</h2>
+        <h2 className="user-list">Your drink list:</h2>
         <DrinksList drinksArr={list} refresh={refresh} />
       </div>
       <Footer />

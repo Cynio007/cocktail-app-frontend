@@ -11,7 +11,9 @@ interface Props {
 
 export const DrinksList = (props: Props) => {
   return (
-    <Accordion defaultActiveKey={"0"}>
+    <Accordion
+    // defaultActiveKey={"0"}
+    >
       {props.drinksArr.map((element, index) => (
         <>
           <Accordion.Item

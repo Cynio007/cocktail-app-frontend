@@ -21,9 +21,14 @@ export const Registration = () => {
     e.preventDefault();
     setLoading(true);
 
-    if (password.length < 6) {
+    if (!email.includes("@")) {
+      setLoading(false);
+      return toast.error('E-mail address must contain "@"');
+    } else if (password.length < 6) {
+      setLoading(false);
       return toast.error("Password must contains min. 6 signs!");
     } else if (password !== checkPassword) {
+      setLoading(false);
       return toast.error("Check password!");
     }
     const res = await fetch("http://localhost:3001/user/register", {
@@ -52,12 +57,13 @@ export const Registration = () => {
   }
   return (
     <>
+      <h2 className="register">Register now:</h2>
       <Form onSubmit={signUp}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Col xs={2}>
             <Form.Label className="register-font">Email address:</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -84,7 +90,9 @@ export const Registration = () => {
               type="password"
               placeholder="Confirm Password"
               value={checkPassword}
-              onChange={(e) => setCheckPassword(e.target.value)}
+              onChange={(e) => {
+                setCheckPassword(e.target.value);
+              }}
             />
           </Col>
         </Form.Group>

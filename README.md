@@ -1,9 +1,9 @@
-
 # Cocktail-App: front-end
 
 <br/>
 Aplikacja korzysta z zewnętrznego API(thecocktaildb.com), w której możemy pobrać i zapisać na swoim koncie (po wcześniejszej rejestracji i zalogowaniu) losowo wybrany lub konketny (po wpisaniu w wyszukiwarke) drink. Każdy trunek posiada takie informacje jak: Nazwa, składniki, instrukcja przygotowania, info czy jest z alkoholem czy bez oraz zdjęcie pogladowege. Poniżej zamieszczam kilka zdjęć aplikacji.
-(Link do back-end'u: https://github.com/Cynio007/cocktail-app-backend)
+(Link do back-end'u: https://github.com/Cynio007/cocktail-app-backend).
+Live Demo: https://cocktailapp.networkmanager.info
 <br/>
 
 ![photo_1](./images/photo_1.png)
@@ -49,4 +49,3 @@ Uruchom serwer
 - Bootstrap
 - React Spinners
 - React Toastify
-
