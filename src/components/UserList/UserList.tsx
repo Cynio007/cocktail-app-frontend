@@ -31,7 +31,7 @@ export const UserList = () => {
   }, [flag]);
 
   useEffect(() => {
-    window.scrollTo({ top: 200, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 250, left: 0, behavior: "smooth" });
   }, [list]);
 
   if (!isLoggedIn) {
