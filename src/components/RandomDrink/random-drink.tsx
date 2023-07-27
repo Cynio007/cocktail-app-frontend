@@ -26,7 +26,7 @@ export const RandomDrink = () => {
   }, [next]);
 
   useEffect(() => {
-    window.scrollTo({ top: 200, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 250, left: 0, behavior: "smooth" });
   }, [randomDrink]);
 
   if (randomDrink === null) {

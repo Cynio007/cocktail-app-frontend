@@ -27,6 +27,10 @@ export const FoundDrink = () => {
     })();
   }, [name]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 250, left: 0, behavior: "smooth" });
+  }, [foundDrink]);
+
   if (foundDrink === null) {
     return <Spinner />;
   }

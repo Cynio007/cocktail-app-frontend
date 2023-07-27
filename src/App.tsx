@@ -13,6 +13,7 @@ import { UserList } from "./components/UserList/UserList";
 import { UserContext } from "./context/user-context";
 import { Logout } from "./components/Logout/Logout";
 import { HomePage } from "./components/HomePage/HomePage";
+import { About } from "./components/About/About";
 
 export const App = () => {
   const checkStatus = () => {
@@ -41,6 +42,7 @@ export const App = () => {
           <Route path="/Drink" element={<DrinkNotFoundView />} />
           <Route path="/RandomDrink" element={<RandomDrinkView />} />
           <Route path="/Registration" element={<Registration />} />
+          <Route path="/About" element={<About />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </UserContext.Provider>

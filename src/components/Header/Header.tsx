@@ -94,12 +94,26 @@ export const Header = () => {
                   Log Out
                 </NavLink>
               </Nav.Link>
+              <Nav.Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                  to={"/About"}
+                  id="navLink"
+                >
+                  About
+                </NavLink>
+              </Nav.Link>
             </Nav>
             <FindDrink />
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="banner"></div>
+      <NavLink to={"/home"}>
+        {" "}
+        <div className="banner"></div>{" "}
+      </NavLink>
       <hr />
     </>
   );
